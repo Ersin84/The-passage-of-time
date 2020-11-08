@@ -1,0 +1,140 @@
+$green: #73d2ab;
+$darkBlue: #122244;
+@mixin bgBlue {
+    background: rgba(178, 233, 255, 1);
+    background: -moz-linear-gradient(top, rgba(179, 233, 255, 1) 0%, rgba(132, 208, 241, 1) 7%, rgba(65, 121, 159, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(179, 233, 255, 1)), color-stop(7%, rgba(132, 208, 241, 1)), color-stop(100%, rgba(65, 121, 159, 1)));
+    background: -webkit-linear-gradient(top, rgba(179, 233, 255, 1) 0%, rgba(132, 208, 241, 1) 7%, rgba(65, 121, 159, 1) 100%);
+    background: -o-linear-gradient(top, rgba(179, 233, 255, 1) 0%, rgba(132, 208, 241, 1) 7%, rgba(65, 121, 159, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(179, 233, 255, 1) 0%, rgba(132, 208, 241, 1) 7%, rgba(65, 121, 159, 1) 100%);
+    background: linear-gradient(to bottom, rgba(179, 233, 255, 1) 0%, rgba(132, 208, 241, 1) 7%, rgba(65, 121, 159, 1) 100%);
+}
+
+@mixin bgGreen {
+    background: rgba(214, 242, 230, 1);
+    background: -moz-linear-gradient(top, rgba(214, 242, 230, 1) 0%, rgba(138, 217, 185, 1) 7%, rgba(86, 177, 141, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(214, 242, 230, 1)), color-stop(7%, rgba(138, 217, 185, 1)), color-stop(100%, rgba(86, 177, 141, 1)));
+    background: -webkit-linear-gradient(top, rgba(214, 242, 230, 1) 0%, rgba(138, 217, 185, 1) 7%, rgba(86, 177, 141, 1) 100%);
+    background: -o-linear-gradient(top, rgba(214, 242, 230, 1) 0%, rgba(138, 217, 185, 1) 7%, rgba(86, 177, 141, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(214, 242, 230, 1) 0%, rgba(138, 217, 185, 1) 7%, rgba(86, 177, 141, 1) 100%);
+    background: linear-gradient(to bottom, rgba(214, 242, 230, 1) 0%, rgba(138, 217, 185, 1) 7%, rgba(86, 177, 141, 1) 100%);
+}
+
+@mixin boxShadow {
+    -webkit-box-shadow: 0px -10px 30px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px -10px 30px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px -10px 30px 0px rgba(0, 0, 0, 0.2);
+}
+
+.icon-love {
+    display: inline-block;
+    // @include sprite($love);
+}
+
+.icon-chemia {
+    display: inline-block;
+    // @include sprite($chemia);
+}
+
+.icon-learn {
+    display: inline-block;
+    // @include sprite($learn);
+}
+
+.icon-mlotek {
+    display: inline-block;
+    // @include sprite($mlotek);
+}
+
+.icon-puchar {
+    display: inline-block;
+    // @include sprite($puchar);
+}
+
+.progress {
+    position: relative;
+    overflow: visible;
+    height: 19px;
+    width: calc(100% - 40px);
+    background-color: $darkBlue;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 4px;
+    @include boxShadow;
+    .progress-bar {
+        height: 11px;
+        border-radius: 3px;
+        @include bgBlue;
+    }
+    .circle {
+        border-radius: 50%;
+        border: 4px solid $darkBlue;
+        background-color: $darkBlue;
+        width: 37px;
+        height: 37px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -9px;
+        cursor: pointer;
+        &:hover {
+            @include bgGreen;
+        }
+        .info {
+            position: absolute;
+            top: -72px;
+            flex-direction: column;
+            width: 83px;
+            text-align: center;
+            border: 1px solid $green;
+            display: none;
+            background-color: white;
+            // @include transition(0.2s);
+            .data {
+                border-bottom: 1px solid $green;
+                font-weight: bold;
+                padding: 4px 0;
+                font-size: 10px;
+            }
+            .name {
+                text-transform: uppercase;
+                padding: 4px 0;
+                position: relative;
+                font-size: 10px;
+            }
+            &:before {
+                content: "";
+                width: 9px;
+                height: 9px;
+                display: block;
+                background-color: white;
+                z-index: 2;
+                border-bottom: 1px solid $green;
+                border-right: 1px solid $green;
+                position: absolute;
+                bottom: -5px;
+                left: 50%;
+                //transform-origin: center center 0px;
+                transform: translateX(-50%) rotate(45deg);
+            }
+        }
+        &:hover {
+            .info {
+                display: flex;
+            }
+        }
+    }
+}
+
+.bg-blue {
+    @include bgBlue;
+}
+
+.container {
+    .content {
+        padding-top: 150px;
+        height: 500px;
+    }
+}
